@@ -1,124 +1,122 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Font Family Detector</title>
+		<style>
+			body {
+				width: 350px;
+				max-height: 500px;
+				font-family: Arial, sans-serif;
+				padding: 10px;
+			}
 
-<head>
-  <meta charset="utf-8">
-  <title>Font Family Detector</title>
-  <style>
-    body {
-      width: 350px;
-      max-height: 500px;
-      font-family: Arial, sans-serif;
-      padding: 10px;
-    }
+			h1 {
+				font-size: 16px;
+				margin-bottom: 10px;
+			}
 
-    h1 {
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
+			ul {
+				list-style-type: none;
+				padding-left: 0;
+				margin: 0;
+			}
 
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-      margin: 0;
-    }
+			li {
+				padding: 5px 0;
+				border-bottom: 1px solid #eee;
+				cursor: pointer;
+			}
 
-    li {
-      padding: 5px 0;
-      border-bottom: 1px solid #eee;
-      cursor: pointer;
-    }
+			li:hover {
+				background-color: #f5f5f5;
+			}
 
-    li:hover {
-      background-color: #f5f5f5;
-    }
+			.font-name {
+				font-weight: bold;
+			}
 
-    .font-name {
-      font-weight: bold;
-    }
+			.count {
+				color: #666;
+				margin-left: 5px;
+			}
 
-    .count {
-      color: #666;
-      margin-left: 5px;
-    }
+			#loading {
+				text-align: center;
+				padding: 20px;
+			}
 
-    #loading {
-      text-align: center;
-      padding: 20px;
-    }
+			#fontList {
+				max-height: 200px;
+				overflow-y: auto;
+			}
 
-    #fontList {
-      max-height: 200px;
-      overflow-y: auto;
-    }
+			#elementsContainer {
+				margin-top: 15px;
+				display: none;
+			}
 
-    #elementsContainer {
-      margin-top: 15px;
-      display: none;
-    }
+			#elementsTitle {
+				font-size: 14px;
+				font-weight: bold;
+				margin-bottom: 5px;
+			}
 
-    #elementsTitle {
-      font-size: 14px;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
+			#elements {
+				max-height: 200px;
+				overflow-y: auto;
+				border: 1px solid #eee;
+				padding: 5px;
+				font-size: 12px;
+				background-color: #f9f9f9;
+			}
 
-    #elements {
-      max-height: 200px;
-      overflow-y: auto;
-      border: 1px solid #eee;
-      padding: 5px;
-      font-size: 12px;
-      background-color: #f9f9f9;
-    }
+			.element-item {
+				margin-bottom: 10px;
+				border-bottom: 1px dashed #ddd;
+				padding-bottom: 5px;
+			}
 
-    .element-item {
-      margin-bottom: 10px;
-      border-bottom: 1px dashed #ddd;
-      padding-bottom: 5px;
-    }
+			.tag-name {
+				color: #0066cc;
+			}
 
-    .tag-name {
-      color: #0066cc;
-    }
+			.element-content {
+				color: #333;
+				display: block;
+				margin-top: 3px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
 
-    .element-content {
-      color: #333;
-      display: block;
-      margin-top: 3px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+			.back-button {
+				display: none;
+				margin-top: 10px;
+				padding: 3px 8px;
+				background-color: #f0f0f0;
+				border: 1px solid #ccc;
+				border-radius: 3px;
+				cursor: pointer;
+			}
 
-    .back-button {
-      display: none;
-      margin-top: 10px;
-      padding: 3px 8px;
-      background-color: #f0f0f0;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      cursor: pointer;
-    }
+			.back-button:hover {
+				background-color: #e0e0e0;
+			}
+		</style>
+	</head>
 
-    .back-button:hover {
-      background-color: #e0e0e0;
-    }
-  </style>
-</head>
-
-<body>
-  <h1>Font Families on Page</h1>
-  <div id="loading">Loading fonts...</div>
-  <div id="fontList" style="display: none;">
-    <ul id="fonts"></ul>
-  </div>
-  <div id="elementsContainer">
-    <div id="elementsTitle"></div>
-    <div id="elements"></div>
-    <button class="back-button" id="backButton">← Back to all fonts</button>
-  </div>
-  <script src="popup.js"></script>
-</body>
-
+	<body>
+		<h1>Font Families on Page</h1>
+		<div id="loading">Loading fonts...</div>
+		<div id="fontList" style="display: none">
+			<ul id="fonts"></ul>
+		</div>
+		<div id="elementsContainer">
+			<div id="elementsTitle"></div>
+			<div id="elements"></div>
+			<button class="back-button" id="backButton">← Back to all fonts</button>
+		</div>
+		<script src="popup.js"></script>
+	</body>
 </html>

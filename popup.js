@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					.map(([fontFamily, data]) => {
 						const li = document.createElement('li')
 						li.innerHTML = `<span class="font-name">${fontFamily}</span><span class="count">(${data.count} times)</span>`
-						li.addEventListener('click', () => showElementsWithFont(fontFamily, data.texts))
+						li.addEventListener('click', () => showElementsWithFont(fontFamily, data.elements))
 						return li
 					})
 
@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		// Clear previous elements
 		elementsList.innerHTML = ''
+		elementsList.scrollTo(0, 0)
 
 		// Add elements to list
 		elements.forEach((element, index) => {
@@ -73,14 +74,18 @@ document.addEventListener('DOMContentLoaded', function () {
 				const elementItem = document.createElement('div')
 				elementItem.className = 'element-item'
 
-				const tagWithAttrs = element.outerHTML.split('>')[0] + '>'
 				const truncatedContent =
 					element.innerText.trim().substring(0, 100) + (element.innerText.length > 100 ? '...' : '')
 
-				elementItem.innerHTML = `
-          <span class="tag-name">${tagWithAttrs}</span>
-          <span class="element-content">${truncatedContent}</span>
-        `
+				elementItem.innerHTML = `<span class="tag-name">${truncatedContent}</span>`
+
+				const codeElement = document.createElement('code')
+				codeElement.className = 'element-content'
+				codeElement.title = element.outerHTML
+				codeElement.textContent = element.outerHTML
+
+				elementItem.appendChild(codeElement)
+
 				elementsList.appendChild(elementItem)
 			} else if (index === 50) {
 				const moreInfo = document.createElement('div')
@@ -107,6 +112,7 @@ function detectFonts() {
 
 	elements.forEach((element) => {
 		if (element.childElementCount > 0) return // Skip elements with children
+		if (element.tagName === 'SCRIPT') return // Skip script elements
 		// Check if element contains text
 		if (element.innerText && element.innerText.trim().length > 0) {
 			// Get font-family value
@@ -122,13 +128,21 @@ function detectFonts() {
 					if (!fontFamilies[font]) {
 						fontFamilies[font] = {
 							count: 1,
-							texts: [element.innerText.trim()] // Element text
+							elements: [
+								{
+									innerText: element.innerText.trim(),
+									outerHTML: element.outerHTML
+								}
+							] // Elements info
 						}
 					} else {
 						fontFamilies[font].count++
 						// 100 elements per font (to avoid memory issues)
-						if (fontFamilies[font].texts.length < 100) {
-							fontFamilies[font].texts.push(element.innerText.trim())
+						if (fontFamilies[font].elements.length < 100) {
+							fontFamilies[font].elements.push({
+								innerText: element.innerText.trim(),
+								outerHTML: element.outerHTML
+							})
 						}
 					}
 				})
