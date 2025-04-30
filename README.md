@@ -2,6 +2,9 @@
 
 A lightweight Chrome extension that detects and lists all font families used on the current page, along with their usage counts. With a single click, you can explore which elements on the page are using a specific font family.
 
+![Font Family Detector UI](./screenshot-1.jpg)
+![Font Family Detector UI](./screenshot-2.jpg)
+
 ## 🚀 Features
 
 - Lists all font families used on the page.
@@ -18,15 +21,9 @@ When you activate the extension on a page, it scans all visible elements in the 
 - The number of occurrences for each font.
 - A clickable interface to view matched elements.
 
-## 📦 Installation
+## 👉 Available on Chrome Web Store
 
-1. Clone or download this repository:
-   ```bash
-   git clone https://github.com/yigitardaunsal/font-family-detector.git
-   ```
-2. Open Chrome and go to `chrome://extensions/`.
-3. Enable "Developer mode" (top-right).
-4. Click "Load unpacked" and select the folder where you cloned the repo.
+[🔗 Install Font Family Detector from Chrome Web Store](https://chromewebstore.google.com/detail/aghflnmekhbmomiopkifkkjnfmmhfdbg?utm_source=item-share-cb)
 
 ## 🖱️ Usage
 
@@ -35,7 +32,23 @@ When you activate the extension on a page, it scans all visible elements in the 
 3. The popup will display all detected font families and how many times they’re used.
 4. Click on a font family name to see which elements are using it (they will be highlighted on the page).
 
-## 📁 Project Structure
+## 🛠️ Development / Contributing
+
+### 📦 Installation
+
+If you'd like to contribute or modify the extension:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yigitardaunsal/font-family-detector.git
+   ```
+2. Open Chrome and go to `chrome://extensions/`.
+3. Enable "Developer mode" (top-right).
+4. Click "Load unpacked" and select the cloned project folder.
+
+Feel free to submit issues or pull requests on [GitHub](https://github.com/yigitardaunsal/font-family-detector).
+
+### 📁 Project Structure
 
 ```
 font-family-detector/
@@ -45,27 +58,18 @@ font-family-detector/
 └── ...
 ```
 
-## 🛠️ Development
-
-- Ensure changes in `popup.js` communicate properly via `chrome.runtime.sendMessage`.
-- Use `console.log` generously during development and reload the extension on `chrome://extensions/` after every change.
-- You can inspect the popup UI by right-clicking it and choosing **Inspect**.
-
-## 🧪 TODO / Improvements
+### 🧪 TODO / Improvements
 
 - Add support for filtering by tag name or class.
 - Show actual font preview next to names.
 - Export report as JSON or CSV.
 - Add dark mode support for popup.
 
-## 📸 Screenshot
-
-![Font Family Detector Screenshot](./screenshot-1.png)
-![Font Family Detector Screenshot](./screenshot-2.png)
-
 ## 🙌 Acknowledgements
 
 Made with ❤️ by [Yiğit Arda Ünsal](https://github.com/yigitardaunsal)
+
+Special thanks to Nurgül Öner for helping test and improve the extension.
 
 ## 📄 License
 
