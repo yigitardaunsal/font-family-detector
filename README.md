@@ -69,7 +69,7 @@ font-family-detector/
 
 Made with ❤️ by [Yiğit Arda Ünsal](https://github.com/yigitardaunsal)
 
-Special thanks to Nurgül Öner for helping test and improve the extension.
+Special thanks to [Nurgül Yiğit](https://github.com/nurguloner) for helping test and improve the extension.
 
 ## 📄 License
 
