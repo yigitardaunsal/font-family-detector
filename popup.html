@@ -11,6 +11,11 @@
 				padding: 10px;
 			}
 
+			body.dark-mode {
+				background-color: #121212;
+				color: #e0e0e0;
+			}
+
 			h1 {
 				font-size: 16px;
 				margin-bottom: 10px;
@@ -30,6 +35,10 @@
 
 			li:hover {
 				background-color: #f5f5f5;
+			}
+
+			body.dark-mode li:hover {
+				background-color: #333;
 			}
 
 			.font-name {
@@ -71,6 +80,11 @@
 				background-color: #f9f9f9;
 			}
 
+			body.dark-mode #elements {
+				border: 1px solid #444;
+				background-color: #333;
+			}
+
 			.element-item {
 				margin-bottom: 10px;
 				border-bottom: 1px dashed #ddd;
@@ -90,9 +104,11 @@
 				text-overflow: ellipsis;
 			}
 
-			.back-button {
-				display: none;
-				margin-top: 10px;
+			body.dark-mode .element-content {
+				color: #e0e0e0;
+			}
+
+			.button {
 				padding: 3px 8px;
 				background-color: #f0f0f0;
 				border: 1px solid #ccc;
@@ -100,14 +116,24 @@
 				cursor: pointer;
 			}
 
-			.back-button:hover {
+			.button:hover {
 				background-color: #e0e0e0;
+			}
+
+			.back-button {
+				display: none;
+				margin-top: 10px;
+			}
+
+			.dark-mode-button {
+				margin-bottom: 10px;
 			}
 		</style>
 	</head>
 
 	<body>
 		<h1>Font Families on Page</h1>
+		<button id="toggleDarkMode" class="button dark-mode-button">Toggle Dark Mode</button>
 		<div id="loading">Loading fonts...</div>
 		<div id="fontList" style="display: none">
 			<ul id="fonts"></ul>
@@ -115,7 +141,7 @@
 		<div id="elementsContainer">
 			<div id="elementsTitle"></div>
 			<div id="elements"></div>
-			<button class="back-button" id="backButton">← Back to all fonts</button>
+			<button class="button back-button" id="backButton">← Back to all fonts</button>
 		</div>
 		<script src="popup.js"></script>
 	</body>
