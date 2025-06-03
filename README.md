@@ -71,7 +71,7 @@ Made with ❤️ by [Yiğit Arda Ünsal](https://github.com/yigitardaunsal)
 Special thanks;
 
 - [Nurgül Yiğit](https://github.com/nurguloner) for helping test and improve the extension.
-- [Umur Akbulut][https://github.com/umurakbulut] for developing dark mode.
+- [Umur Akbulut](https://github.com/umurakbulut) for developing dark mode.
 
 ## 📄 License
 
