@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 	let allFontData = null
+
+	const body = document.body
 	const fontListContainer = document.getElementById('fontList')
 	const fontsList = document.getElementById('fonts')
 	const elementsContainer = document.getElementById('elementsContainer')
@@ -7,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	const elementsList = document.getElementById('elements')
 	const backButton = document.getElementById('backButton')
 	const loadingMessage = document.getElementById('loading')
-
+	const toggleButton = document.getElementById('toggleDarkMode')
 	// Get active tab
 	chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 		const activeTab = tabs[0]
@@ -100,6 +102,15 @@ document.addEventListener('DOMContentLoaded', function () {
 		elementsContainer.style.display = 'none'
 		backButton.style.display = 'none'
 		fontListContainer.style.display = 'block'
+	})
+
+	// Check system theme and apply dark mode if needed
+	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		body.classList.add('dark-mode')
+	}
+
+	toggleButton.addEventListener('click', () => {
+		body.classList.toggle('dark-mode')
 	})
 })
 
