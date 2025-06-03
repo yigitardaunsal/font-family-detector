@@ -63,13 +63,15 @@ font-family-detector/
 - Add support for filtering by tag name or class.
 - Show actual font preview next to names.
 - Export report as JSON or CSV.
-- Add dark mode support for popup.
 
 ## 🙌 Acknowledgements
 
 Made with ❤️ by [Yiğit Arda Ünsal](https://github.com/yigitardaunsal)
 
-Special thanks to [Nurgül Yiğit](https://github.com/nurguloner) for helping test and improve the extension.
+Special thanks;
+
+- [Nurgül Yiğit](https://github.com/nurguloner) for helping test and improve the extension.
+- [Umur Akbulut][https://github.com/umurakbulut] for developing dark mode.
 
 ## 📄 License
 
